@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+    <!-- card3 -->
+    <div class="container">
+        <h3 class="text-center" style="margin-top: 50px;">TREANDLY PRODUCTS</h3>
+        <div class="row" style="margin-top: 50px;">
+            {% for item in p %}
+            <div class="col-md-3 py-3 py-md-0">
+                <div class="card" id="c">
+                    <img src="{{item.img.url}}" alt="" class="card image-top">
+                    <div class="card-body">
+                        <h3 class="card-titel text-center">{{item.name}}-{{item.subcat.name}}</h3>
+                        <p class="card-text text-center">${{item.price}}</p>
+                        <div style="display: flex;flex-direction: row;justify-content: space-between;">
+                            <div id="btn3"><button><a href="{% url 'product' id=item.pk %}">Shop Now</a></button></div>
+                            <!-- <div id="btn2"><button>Add Cart</button></div> -->
+                        </div>    
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+        </div>
+
+
+
+    </div>
+    <!-- card3 -->
+
+
+{% endblock %}    

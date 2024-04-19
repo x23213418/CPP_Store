@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<!-- about -->
+<div class="container">
+    <h1 class="text-center" style="margin-top: 50px;">{{p.name}}-{{p.subcat.name}}-{{p.subcat.cat.name}}</h1>
+    <div class="row" style="margin-top: 50px;">
+        <div class="col-md-6 py-3 py-md-0">
+            <div class="card">
+                <img src="{{p.img.url}}" alt="">
+            </div>
+        </div>
+        <div class="col-md-6 py-3 py-md-0">
+            <p>{{p.desc}}</p>
+            <form action="{% url 'order_now' %}" method="post">
+                {% csrf_token %}
+            
+                <div class="col-md-12">
+                    <div class="form-floating">
+                        <label for="q">Quantity</label>
+                        <input name="q" type="number" class="form-control" id="fname" placeholder="First Name">
+                        
+                    </div>
+                </div>
+                <div class="col-md-6 py-3">
+                <input type="hidden" name="id" value="{{p.pk}}">
+                <div class="form-floating">
+                    <label for="fname"><b>Enter Address</b></label>
+                    <textarea name="adr" id="" cols="90" rows="5"></textarea>
+                    
+                </div>
+            </div>
+            <div id="btn4"><button type="submit">Order Now</button></div>
+            </form>
+            <!-- <div id="btn4"><button>Order Now</button></div> -->
+        </div>
+    </div>
+</div>
+<!-- about -->
+
+{% endblock %}
