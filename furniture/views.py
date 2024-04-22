@@ -79,7 +79,7 @@ def order_now(request):
             q=request.POST.get('q')
             adr=request.POST.get('adr')
             p=Product.objects.get(pk=id)
-            o=Order(prod_id=id, quantity=q, user_id=request.user.pk, order_main_id='DSDSD23DS', status='Pending', address=adr)
+            o=Order(prod_id=id, quantity=q, user_id=request.user.pk, price= int(q)*int(p.prod_price), order_main_id='DSDSD23DS', status='Pending', address=adr)
             o.save()
             return redirect('home')
         else:
