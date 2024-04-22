@@ -1,6 +1,6 @@
 #!/usr/bin/bash 
 
-sed -i 's/\[]/\["3.253.106.61"]/' /home/ubuntu/furniture/furniture/settings.py
+sed -i 's/\[]/\["34.243.156.231"]/' /home/ubuntu/furniture/furniture/settings.py
 
 python manage.py migrate 
 python manage.py makemigrations     
